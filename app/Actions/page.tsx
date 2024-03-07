@@ -12,7 +12,9 @@ export default function ActionPage() {
       <Link href="/GenerateCode">
       <Action text={'Crear una asociación de viviendas'} icon={BsHouses}/>
       </Link>
+      <Link href={"/InsertCode"}>
       <Action text={'Ingresar como vecino de una asociacion de viviendas'} icon={BsHouseUp}/>
+      </Link>
     </div>
   );
 }

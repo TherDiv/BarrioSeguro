@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import LoginForm from '@/components/LoginForm';
 import RegisterForm from '@/components/RegisterForm';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AuthPage() {
   const [selectedOption, setSelectedOption] = useState<'login' | 'register'>('login');
@@ -11,8 +13,13 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="w-screen bg-gray-100 p-8 rounded-lg shadow-md flex flex-col justify-center">
+    <div className="flex flex-col justify-center">
+      <div className="flex justify-center with-full mb-8">
+      <Image src={"/logo1.png"} width={300} height={300} alt={'xd'}/>
+
+      </div>
+
+      <div className="bg-gray-100 p-8 rounded-lg shadow-md flex flex-col justify-center">
         <div className="flex mb-8 justify-center rounded-lg ">
           <div
             className={`cursor-pointer py-2 px-8  ${
