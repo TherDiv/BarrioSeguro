@@ -10,17 +10,18 @@ import { AiOutlineThunderbolt } from "react-icons/ai";
 import { GrUserPolice } from "react-icons/gr";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import {Footer} from '@/components/Footer';
+import Image from 'next/image';
 
-export default function CommunityMeetingsPage() {
+export default function SurveysPage() {
 
   return (
     <>
-    <Footer text={'Juntas Vecinales'}/>
+    <Footer text={'Encuestas'}/>
         <div className="flex justify-center flex-col gap-12">
-      <p className='font-bold text-xl '>Juntas Pendientes:</p>
-      <Action text={'Reparación de cableado eléctrico'} icon={AiOutlineThunderbolt}/>
-      <Action text={'Renovación del personal de seguridad'} icon={GrUserPolice}/>
-      <Action text={'Mantenimiento de las rejas'} icon={HiOutlineWrenchScrewdriver}/>
+      <p className='font-bold text-xl '>Encuestas Pendientes:</p>
+      <Image src={"/encuesta1.png"}  width={600} height={200} alt='encuesta1'/>
+      <Image src={"/encuesta2.png"}  width={600} height={200} alt='encuesta2'/>
+      <Image src={"/encuesta3.png"}  width={600} height={200} alt='encuesta3'/>
     </div>
     </>
 
