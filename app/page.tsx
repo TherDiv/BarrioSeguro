@@ -5,6 +5,8 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
 
 export default function Home() {
 	return (
@@ -36,6 +38,33 @@ export default function Home() {
 				>
 					Presupuestar gratis
 				</Link>
+			</div>
+
+			<div className="flex mt-6" >
+				<Image src={"/phonewallpaper.png"} alt="banner" width={250} height={500}></Image>
+				<div className="flex flex-col mt-24 gap-4">
+					<div className="flex gap-2">
+					<FaCheck/>
+					<p>Eficiencia</p>
+					</div>
+					<div className="flex gap-2" >
+					<FaCheck />
+					<p>Seguridad</p>
+					</div>
+					<div className="flex gap-2" >
+					<FaCheck />
+					<p>Transparencia</p>
+					</div>
+					<div className="flex gap-2" >
+					<FaCheck />
+					<p>Comunicacion</p>
+					</div>
+					<div className="flex gap-2" >
+					<FaCheck />
+					<p>Alarma</p>
+					</div>
+
+				</div>
 			</div>
 
 		</section>
