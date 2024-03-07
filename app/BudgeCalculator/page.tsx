@@ -170,7 +170,6 @@ export default function BudgeCalculatorPage() {
       <div className="flex flex-col gap-2">
         <Modal
           isOpen={isOpen}
-          placement={modalPlacement}
           onOpenChange={onOpenChange}
         >
           <ModalContent>
