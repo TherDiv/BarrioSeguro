@@ -22,4 +22,4 @@
 
 #### Gestionar usuarios
 
-![img](https://github.com/Hecze/BarrioSeguroa/blob/main/Pag6.png)****
+![img](https://github.com/Hecze/BarrioSeguro/blob/main/Pag6.png)****
