@@ -1,40 +1,25 @@
-# Next.js & NextUI Template
+# Barrio Seguro
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+![img](https://github.com/Hecze/Genetica-Cuyistica/blob/main/Pag5.png)****
 
-## Technologies Used
+## Features
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+#### Finanzas
 
-## How to Use
+![img](https://github.com/Hecze/Genetica-Cuyistica/blob/main/Pag7.png)****
 
+#### Encuestas
 
-### Use the template with create-next-app
+![img](https://github.com/Hecze/Genetica-Cuyistica/blob/main/Pag8.png)****
 
-To create a new project based on this template using `create-next-app`, run the following command:
+#### Seguimiento de las juntas
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
+![img](https://github.com/Hecze/Genetica-Cuyistica/blob/main/Pag9.png)****
 
-### Install dependencies
+#### Información del personal contratado
 
-```bash
-npm install
-```
+![img](https://github.com/Hecze/Genetica-Cuyistica/blob/main/Pag10.png)****
 
-### Run the development server
+#### Gestionar usuarios
 
-```bash
-npm run dev
-```
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+![img](https://github.com/Hecze/Genetica-Cuyistica/blob/main/Pag6.png)****
