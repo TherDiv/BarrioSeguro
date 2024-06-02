@@ -13,7 +13,7 @@ Prerrequisitos
 - MySQL instalado y configurado.
 - Git instalado
 
-# Clonar el Repositorio
+## Clonar el Repositorio
 
 ```bash
 git clone https://github.com/Hecze/BarrioSeguro.git
@@ -22,12 +22,12 @@ cd BarrioSeguro
 npm install
 ```
 
-# Inicializar en Windows
+### Inicializar en Windows
 ```bash
 npm run dev
 ```
 
-# Inicializar en Linux
+### Inicializar en Linux
 ```bash
 yarn dev
 ```
