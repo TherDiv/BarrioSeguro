@@ -1,21 +1,37 @@
-# Barrio Seguro
+Este es un proyecto [Next.js](https://nextjs.org/) iniciado con [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# BarrioSeguro
 
-First, run the development server:
+BarrioSeguro es una aplicación web diseñada para mejorar la seguridad y la comunicación en asociaciones de vivienda y juntas vecinales. Permite a los residentes coordinar actividades, realizar encuestas, organizar peticiones municipales y gestionar otras funciones administrativas como el pago de vigilancia y el presupuesto para la adquisición de medios de seguridad.
+
+## Inicializar BarrioSeguro
+
+Prerrequisitos
+
+- Node.js y npm instalados.
+- MySQL instalado y configurado.
+- Git instalado
+
+# Clonar el Repositorio
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Hecze/BarrioSeguro.git
+cd BarrioSeguro
+
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Inicializar en Windows
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# Inicializar en Linux
+```bash
+yarn dev
+```
+
+Abra [http://localhost:3000](http://localhost:3000) con su navegador para ver el resultado.
+
+Puede comenzar a editar la página modificando `app/page.js`. La página se actualiza automáticamente a medida que edita el archivo.
