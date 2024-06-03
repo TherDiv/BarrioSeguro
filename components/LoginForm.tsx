@@ -38,7 +38,7 @@ export default function LoginForm() {
                 <Input type="text" label="DNI" value={dni} isInvalid={isDNIInvalid} errorMessage={isDNIInvalid && "Please enter a valid DNI"} onValueChange={setDNI} />
                 <Input type="password" label="Contraseña" value={password} onValueChange={setPassword} />
             </div>
-            <Button color="success" className="my-12 px-24 py-6" onPress={handleLogin}>
+            <Button className="my-12 px-24 py-6 bg-[#38A911]" onPress={handleLogin}>
                 <p className="text-lg">
                     Iniciar Sesión
                 </p>
@@ -48,7 +48,6 @@ export default function LoginForm() {
                 <Link
                     isExternal
                     className="grid items-center gap-1 text-current"
-                    href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
                     title="nextui.org homepage"
                 >
                     <span className="text-default-600 text-primary">Olvidé mi contraseña</span>

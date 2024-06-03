@@ -51,7 +51,7 @@ export default function RegisterForm() {
     return (
         <>
             <div className="flex w-full flex-wrap gap-6">
-                <Input type="text" label="Nombres" value={names} onValueChange={setNames} />
+                <Input type="text"  label="Nombres" value={names} onValueChange={setNames} />
                 <Input type="text" label="Apellidos" value={lastNames} onValueChange={setLastNames} />
                 <Input type="text" label="DNI" value={dni} isInvalid={isDNIInvalid} errorMessage={isDNIInvalid && "Please enter a valid DNI"} onValueChange={setDNI} />
                 <Input type="text" label="Dirección" value={address} onValueChange={setAddress} />
@@ -59,7 +59,7 @@ export default function RegisterForm() {
                 <Input type="password" label="Contraseña" value={password} onValueChange={setPassword} />
                 <Input type="password" label="Confirmar Contraseña" value={confirmPassword} isInvalid={isPasswordMatchInvalid} errorMessage={isPasswordMatchInvalid && "Passwords do not match"} onValueChange={setConfirmPassword} />
             </div>
-            <Button color="success" className="mt-12 mb-2 px-24 py-6" onPress={handleCreateAccount}>
+            <Button className="mt-12 mb-2 px-24 py-6 bg-[#38A911]" onPress={handleCreateAccount}>
                 <p className="text-lg">
                     Crear Cuenta
                 </p>
