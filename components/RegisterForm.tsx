@@ -1,7 +1,8 @@
 "use client"
 import { Input } from "@nextui-org/input";
-import { Button, ButtonGroup } from "@nextui-org/button";
+import { Button } from "@nextui-org/button";
 import { useMemo, useState } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function RegisterForm() {
     const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ export default function RegisterForm() {
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const router = useRouter();
 
     const validateEmail = (value: string) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
     const validateDNI = (value: string) => value.length === 8 && !isNaN(parseInt(value));
@@ -31,6 +33,21 @@ export default function RegisterForm() {
         return validatePasswordMatch(password, confirmPassword) ? false : true;
     }, [password, confirmPassword]);
 
+    const handleCreateAccount = () => {
+        const userData = {
+            names,
+            lastNames,
+            dni,
+            address,
+            email,
+            password
+        };
+        localStorage.setItem('userData', JSON.stringify(userData));
+        //redirigir a la página de inicio de sesión
+        router.push('/Actions');
+        
+    };
+
     return (
         <>
             <div className="flex w-full flex-wrap gap-6">
@@ -42,12 +59,11 @@ export default function RegisterForm() {
                 <Input type="password" label="Contraseña" value={password} onValueChange={setPassword} />
                 <Input type="password" label="Confirmar Contraseña" value={confirmPassword} isInvalid={isPasswordMatchInvalid} errorMessage={isPasswordMatchInvalid && "Passwords do not match"} onValueChange={setConfirmPassword} />
             </div>
-            <Button color="success" className="mt-12 mb-2 px-24 py-6 ">
+            <Button color="success" className="mt-12 mb-2 px-24 py-6" onPress={handleCreateAccount}>
                 <p className="text-lg">
                     Crear Cuenta
                 </p>
             </Button>
         </>
-
     );
 }

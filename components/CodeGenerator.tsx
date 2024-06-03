@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@nextui-org/button';
 
-const CodeGenerator: React.FC = () => {
+interface CodeGeneratorProps {
+  associationName: string;
+}
+
+const CodeGenerator: React.FC<CodeGeneratorProps> = ({ associationName }) => {
   const [generatedCode, setGeneratedCode] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
@@ -28,6 +32,12 @@ const CodeGenerator: React.FC = () => {
       // Si se generan al menos 4 números, establece el código generado y deshabilita el botón
       setGeneratedCode(code);
       setButtonDisabled(true);
+
+      // Guarda el código generado en el local storage relacionado con el nombre de la asociación
+      const storedCodes = localStorage.getItem('associationCodes');
+      const associationCodes = storedCodes ? JSON.parse(storedCodes) : {};
+      associationCodes[associationName] = code;
+      localStorage.setItem('associationCodes', JSON.stringify(associationCodes));
     }
   };
 

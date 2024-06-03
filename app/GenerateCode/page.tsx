@@ -11,7 +11,7 @@ export default function GenerateCodePage() {
   return (
     <div className="flex justify-center flex-col gap-12 w-96 justify-items-center items-center">
         <Input type="text" label="Nombre de la Asociación" value={name} onValueChange={setName} className='w-3/4'/>
-        {name ? <CodeGenerator/> : null}
+        {name ? <CodeGenerator associationName={name}/> : null}
     </div>
   );
 }
