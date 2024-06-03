@@ -14,7 +14,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Asociation } from '@/components/Asociation';
 
-export default async function AsociationPage({params}) {
+export default async function AsociationPage({params}: any) {
     const [dni, setDNI] = useState("");
     const [associationName, setAssociationName] = useState("");
     const router = useRouter();
