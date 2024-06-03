@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@nextui-org/button';
 
 interface CodeGeneratorProps {
@@ -8,6 +9,7 @@ interface CodeGeneratorProps {
 const CodeGenerator: React.FC<CodeGeneratorProps> = ({ associationName }) => {
   const [generatedCode, setGeneratedCode] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const router = useRouter();
 
   const generateCode = () => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
@@ -49,6 +51,10 @@ const CodeGenerator: React.FC<CodeGeneratorProps> = ({ associationName }) => {
     return () => clearTimeout(timer);
   }, [buttonDisabled]);
 
+  const handleRedirect = () => {
+    router.push(`/Asociation/${generatedCode}`);
+  };
+
   return (
     <div>
       <Button
@@ -59,9 +65,20 @@ const CodeGenerator: React.FC<CodeGeneratorProps> = ({ associationName }) => {
         Generar Código
       </Button>
       {generatedCode && (
-        <div className="mx-6 my-6 rounded-lg bg-slate-900 h-36 w-96 flex justify-center content-center items-center justify-items-center mt-12">
-          <p className="text-white text-6xl">{generatedCode}</p>
-        </div>
+        <>
+            <p className='mt-12'>comparte este codigo con tus vecinos para que se unan</p>
+
+          <div className="mx-6 my-6 mt-4 rounded-lg bg-slate-900 h-36 w-96 flex justify-center content-center items-center justify-items-center mt-12">
+            <p className="text-white text-6xl">{generatedCode}</p>
+          </div>
+          <Button
+            color="primary"
+            className="mt-4"
+            onClick={handleRedirect}
+          >
+            Redirigir a la asociación creada
+          </Button>
+        </>
       )}
     </div>
   );
