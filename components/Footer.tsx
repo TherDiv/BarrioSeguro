@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Button } from "@nextui-org/button";
 import { IconType } from 'react-icons';
 import Link from 'next/link';
@@ -10,10 +10,27 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ text }) => {
+
+
+  const [association, setAssociation] = useState("");
+
+  useEffect(() => {
+      const storedUserData = localStorage.getItem('userData');
+      const storedCodes = localStorage.getItem('associationCodes');
+      if (storedCodes) {
+        const associationCodes = JSON.parse(storedCodes);
+      const associationCode = Object.values(associationCodes)[0] as string;
+      if (associationCode) {
+          setAssociation(associationCode);
+      }
+      }
+  }
+  , []);
+
   return (
     <div className=" mb-20">
     <div className="flex justify-between flex-col">
-        <Link href={"/Asociation/FISILOVE"}>
+        <Link href={"/Asociation/" + association}>
         <Image
             src="/logo2.png"
             alt="Asociation"

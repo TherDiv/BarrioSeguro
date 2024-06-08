@@ -21,7 +21,7 @@ const Staff: React.FC<StaffProps> = ({
     position
 }) => {
     return (
-        <div className="flex bg-white rounded-md shadow-md py-6 px-4 mb-4 w-80">
+        <div className="text-black flex bg-white rounded-md shadow-md py-6 px-4 mb-4 w-80">
             <div className="flex-none w-24 h-24 object-cover">
                 <Image
                     src={imageUrl || '/default-profile.jpg'} // Coloca aquí la ruta de tu imagen por defecto

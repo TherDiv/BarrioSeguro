@@ -80,7 +80,7 @@ export const Asociation = (id: any) => {
             </div>
 
             <div className="flex flex-col justify-center gap-4 mt-6 max-w-screen">
-                <p className="font-bold text-xl text-slate-600">Menu</p>
+                <p className="font-bold text-xl text-[#115DA9] ">Menu</p>
                 <div className="flex flex-wrap justify-between gap-2">
                     <Link href={"/Surveys"}>
                         <Option text={"Encuestas"} icon={FaRegNewspaper} />

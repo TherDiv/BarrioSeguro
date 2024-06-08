@@ -61,6 +61,7 @@ const CodeGenerator: React.FC<CodeGeneratorProps> = ({ associationName }) => {
         color={buttonDisabled ? 'secondary' : 'success'}
         onClick={generateCode}
         isDisabled={buttonDisabled}
+        className='w-80 h-12 mt-12'
       >
         Generar Código
       </Button>

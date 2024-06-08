@@ -15,6 +15,7 @@ import { Button } from "@nextui-org/button";
 import { useState, useEffect } from "react";
 
 export default function UserPage() {
+    const [association, setAssociation] = useState("");
     const [names, setNames] = useState("");
     const [lastNames, setLastNames] = useState("");
     const [dni, setDNI] = useState("");
@@ -31,7 +32,16 @@ export default function UserPage() {
             setAddress(userData.address);
             setEmail(userData.email);
         }
-    }, []);
+        const storedCodes = localStorage.getItem('associationCodes');
+        if (storedCodes) {
+          const associationCodes = JSON.parse(storedCodes);
+        const associationCode = Object.values(associationCodes)[0] as string;
+        if (associationCode) {
+            setAssociation(associationCode);
+        }
+        }
+    }
+    , []);
 
     const isDNIInvalid = dni.length !== 8;
     const isEmailInvalid = !email.includes("@");
@@ -51,7 +61,7 @@ export default function UserPage() {
     return (
         <div className=" ">
             <div className="flex justify-between flex-col">
-                <Link href={"/Asociation/FISILOVE"}>
+                <Link href={"/Asociation/" + association}>
                     <Image
                         src="/logo2.png"
                         alt="Asociation"

@@ -1,4 +1,3 @@
-"use client"
 import { useRouter } from 'next/navigation';
 import { title } from "@/components/primitives";
 import { Option } from "@/components/Option";
@@ -15,12 +14,7 @@ import { useEffect, useState } from "react";
 import { Asociation } from '@/components/Asociation';
 
 export default async function AsociationPage({params}: any) {
-    const [dni, setDNI] = useState("");
-    const [associationName, setAssociationName] = useState("");
-    const router = useRouter();
 	const { id } = params;
-
-
     return (
         <div className=" ">
 			<Asociation params={id} />

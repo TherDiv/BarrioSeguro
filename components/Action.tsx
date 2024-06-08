@@ -10,7 +10,7 @@ interface ActionProps {
 
 export const Action: React.FC<ActionProps> = ({ icon: Icon, text }) => {
   return (
-    <div className="flex items-center justify-between bg-blue-200 rounded-lg border border-black p-4 h-32 hover:bg-blue-300 cursor-pointer transition shadow-lg">
+    <div className="text-black flex items-center justify-between bg-blue-400 rounded-lg border border-black p-4 h-32 hover:bg-blue-300 cursor-pointer transition shadow-lg">
       {/* Sección izquierda con el icono */}
       <div className="flex w-1/4 items-center justify-center">
         {Icon && <Icon className="w-10 h-10" />}
