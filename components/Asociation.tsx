@@ -77,6 +77,8 @@ export const Asociation = (id: any) => {
                     Asociación de Vivienda
                 </p>
                 <h1 className="text-[#fafafa] text-4xl font-bold text-start">{associationName}</h1>
+            <a href="/Modificar" className="text-black text-left underline">Modificar</a>
+
             </div>
 
             <div className="flex flex-col justify-center gap-4 mt-6 max-w-screen">

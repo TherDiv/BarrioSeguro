@@ -8,7 +8,7 @@ interface StaffProps {
     names: string;
     lastNames: string;
     phone: string;
-    schedule: string;
+    schedule?: string;
     position: string;
 }
 
@@ -46,7 +46,8 @@ const Staff: React.FC<StaffProps> = ({
                         <span className="font-bold">Teléfono:</span> {phone}
                     </p>
                     <p>
-                        <span className="font-bold">Horario:</span> {schedule}
+                        {schedule ?  <span className="font-bold">Horario: {schedule}</span>  : null}
+                       
                     </p>
                 </div>
                 <button className="flex items-center bg-blue-500 text-white py-2 px-4 rounded-md">
