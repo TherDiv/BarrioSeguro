@@ -1,5 +1,6 @@
 import { Footer } from '@/components/Footer';
 import Staff from '@/components/Staff';
+import ModificarButton from '@/components/ModificarButtons';
 
 export default function SecurityPage() {
   const staffList = [
@@ -100,7 +101,10 @@ export default function SecurityPage() {
             position={staff.position}
           />
         ))}
+
       </div>
+      <ModificarButton />
+
     </>
   );
 }
