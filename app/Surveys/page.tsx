@@ -11,6 +11,8 @@ import { GrUserPolice } from "react-icons/gr";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import {Footer} from '@/components/Footer';
 import Image from 'next/image';
+import React from 'react';
+import Poll from '@/components/Poll';
 
 export default function SurveysPage() {
 
@@ -18,12 +20,16 @@ export default function SurveysPage() {
     <>
     <Footer text={'Encuestas'}/>
         <div className="flex justify-center flex-col gap-12">
-      <p className='font-bold text-xl '>Encuestas Pendientes:</p>
-      <Image src={"/encuesta1.png"}  width={600} height={200} alt='encuesta1'/>
-      <Image src={"/encuesta2.png"}  width={600} height={200} alt='encuesta2'/>
-      <Image src={"/encuesta3.png"}  width={600} height={200} alt='encuesta3'/>
+      <p className='font-bold text-xl'>Encuestas Pendientes:</p>
+    </div>
+    <div className="min-h-screen flex flex-col items-center justify-center gap-4 mt-2">
+      <Poll question="¿Quien se robo las pc de la FISI?"/>
+      <Poll question="¿En que invertimos lo del mes de mayo?"/>
+      <Poll question="¿Pollada o Anticuchada?"/>
+      <Poll question="¿Cuando reunirnos para la proxima asamblea?"/>
     </div>
     </>
 
   );
+  
 }
