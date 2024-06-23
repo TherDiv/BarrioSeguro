@@ -16,7 +16,8 @@ Prerrequisitos
 ## Clonar el Repositorio
 
 ```bash
-git clone https://github.com/Hecze/BarrioSeguro.git
+git clone https://github.com/TherDiv/BarrioSeguro.git
+git checkout -b staging origin/staging
 cd BarrioSeguro
 
 npm install
