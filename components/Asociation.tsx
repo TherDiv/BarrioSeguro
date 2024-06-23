@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@nextui-org/button";
 import { Option } from "@/components/Option";
 import { FaBell } from "react-icons/fa";
 import { FaPeopleRoof } from "react-icons/fa6";
@@ -77,7 +76,7 @@ export const Asociation = (id: any) => {
                     Asociación de Vivienda
                 </p>
                 <h1 className="text-[#fafafa] text-4xl font-bold text-start">{associationName}</h1>
-            <a href="/Modificar" className="text-black text-left underline">Modificar</a>
+            <Link href="/Modificar" className="text-black text-left underline">Modificar</Link>
 
             </div>
 
