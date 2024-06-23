@@ -1,18 +1,7 @@
 "use client"
-import { useState } from 'react';
-import LoginForm from '@/components/LoginForm';
-import RegisterForm from '@/components/RegisterForm';
-import CodeGenerator from '@/components/CodeGenerator';
-import {Input} from '@nextui-org/input';
-import Link from 'next/link';
-import { Action } from '@/components/Action';
-import { AiOutlineThunderbolt } from "react-icons/ai";
-import { GrUserPolice } from "react-icons/gr";
-import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import {Footer} from '@/components/Footer';
-import Image from 'next/image';
 import React from 'react';
-import Poll from '@/components/Poll';
+import Poll from '@/components/poll';
 
 export default function SurveysPage() {
 
