@@ -3,7 +3,7 @@ Este es un proyecto [Next.js](https://nextjs.org/) iniciado con [`create-next-ap
 
 # BarrioSeguro
 
-BarrioSeguro es una aplicación web diseñada para mejorar la seguridad y la comunicación en asociaciones de vivienda y juntas vecinales. Permite a los residentes coordinar actividades, realizar encuestas, organizar peticiones municipales y gestionar otras funciones administrativas como el pago de vigilancia y el presupuesto para la adquisición de medios de seguridad.
+Aplicación web diseñada para mejorar la seguridad y la comunicación en asociaciones de vivienda y juntas vecinales. Permite a los residentes coordinar actividades, realizar encuestas, organizar peticiones municipales y gestionar otras funciones administrativas como el pago de vigilancia y el presupuesto para la adquisición de medios de seguridad.
 
 ## Inicializar BarrioSeguro
 
