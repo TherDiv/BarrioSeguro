@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { FaUserFriends, FaUserTie, FaDollarSign, FaShieldAlt } from 'react-icons/fa';
 import ElegirTipoVecino from '@/components/ElegirTipoVecino';
