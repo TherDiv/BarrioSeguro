@@ -14,7 +14,7 @@ const ElegirTipoVecino: React.FC<ElegirTipoVecinoProps> = ({ type, label, icon, 
   return (
     <button
       onClick={() => onClick(type)}
-      className="p-4 bg-green-500 text-white rounded-lg shadow-md flex flex-col items-center justify-center"
+      className="p-4 bg-green-500 text-white rounded-lg shadow-md flex flex-col items-center justify-center hover:bg-green-600"
     >
       {icon}
       <span>{label}</span>
