@@ -1,58 +1,61 @@
 "use client"
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useRouter } from 'next/navigation';
-import { Link } from "@nextui-org/link";
-
 
 export default function LoginForm() {
-    const [dni, setDNI] = useState("");
-    const [password, setPassword] = useState("");
+    const [formData, setFormData] = useState({
+        dni: "",
+        contraseña: ""
+    });
+    const [error, setError] = useState("");
     const router = useRouter();
 
-    const validateDNI = (value: string) => value.length === 8 && !isNaN(parseInt(value));
+    const handleLogin = async () => {
+        try {
+            const response = await fetch(process.env.BACKEND_URL + '/vecinos/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.BACKEND_API_KEY}`
+                },
+                body: JSON.stringify(formData)
+            });
 
-    const isDNIInvalid = useMemo(() => {
-        if (dni === "") return false;
-        return validateDNI(dni) ? false : true;
-    }, [dni]);
-
-    const handleLogin = () => {
-        const storedUserData = localStorage.getItem('userData');
-        if (storedUserData) {
-            const userData = JSON.parse(storedUserData);
-            if (userData.dni === dni && userData.password === password) {
-                router.push('/Actions');
-            } else {
-                alert("DNI o contraseña incorrectos.");
+            if (!response.ok) {
+                throw new Error('Credenciales inválidas');
             }
-        } else {
-            alert("No se encontró ninguna cuenta con este DNI.");
+
+            // Si la respuesta es exitosa, puedes manejar la respuesta como sea necesario
+            // Por ejemplo, redirigir al usuario a la página de inicio después del login
+            router.push('/inicio'); // Cambia la ruta según tu aplicación
+
+        } catch (error) {
+            console.error('Error al iniciar sesión:', error);
+            setError('Credenciales inválidas'); // Manejo básico del error de credenciales inválidas
         }
+    };
+
+    const handleChange = (key: string, value: string) => {
+        setFormData({
+            ...formData,
+            [key]: value
+        });
     };
 
     return (
         <>
             <div className="flex w-full flex-wrap gap-6">
-                <Input type="text" label="DNI" value={dni} isInvalid={isDNIInvalid} errorMessage={isDNIInvalid && "Please enter a valid DNI"} onValueChange={setDNI} />
-                <Input type="password" label="Contraseña" value={password} onValueChange={setPassword} />
+                <Input type="text" label="DNI" value={formData.dni} onValueChange={(value) => handleChange('dni', value)} />
+                <Input type="password" label="Contraseña" value={formData.contraseña} onValueChange={(value) => handleChange('contraseña', value)} />
             </div>
-            <Button className="my-12 px-24 py-6 bg-[#38A911]" onPress={handleLogin}>
+            {error && <p className="text-red-500">{error}</p>}
+            <Button className="mt-6 px-24 py-6 bg-[#38A911]" onPress={handleLogin}>
                 <p className="text-lg">
                     Iniciar Sesión
                 </p>
             </Button>
-
-            <footer className="w-full flex items-center justify-center py-3">
-                <Link
-                    isExternal
-                    className="grid items-center gap-1 text-current"
-                    title="nextui.org homepage"
-                >
-                    <span className="text-default-600 text-primary">Olvidé mi contraseña</span>
-                </Link>
-            </footer>
         </>
     );
 }
