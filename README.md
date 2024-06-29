@@ -17,7 +17,10 @@ Prerrequisitos
 
 ```bash
 git clone https://github.com/TherDiv/BarrioSeguro.git
+<<<<<<< HEAD
 git checkout -b staging origin/staging
+=======
+>>>>>>> e42303ffc7667c68d6a2a5bae96ef7f103795ee1
 cd BarrioSeguro
 
 npm install
