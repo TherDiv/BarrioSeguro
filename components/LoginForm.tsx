@@ -5,22 +5,23 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
-    const [formData, setFormData] = useState({
-        dni: "",
-        contraseña: ""
-    });
+    const [dni, setDni] = useState("");
+    const [contraseña, setContraseña] = useState("");
     const [error, setError] = useState("");
     const router = useRouter();
 
     const handleLogin = async () => {
         try {
-            const response = await fetch(process.env.BACKEND_URL + '/vecinos/login', {
+            const dniNumber = parseInt(dni, 10);  // Parsea el DNI a número entero antes de enviarlo
+            const headers = new Headers();
+            headers.append('accept', 'application/json');
+            headers.append('access_token', process.env.NEXT_PUBLIC_BACKEND_API_KEY || ''); // Asegúrate de manejar el caso donde process.env.NEXT_PUBLIC_BACKEND_API_KEY sea undefined
+            headers.append('Content-Type', 'application/json'); 
+
+            const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/vecinos/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${process.env.BACKEND_API_KEY}`
-                },
-                body: JSON.stringify(formData)
+                headers: headers,
+                body: JSON.stringify({ dni: dniNumber, contraseña: contraseña })
             });
 
             if (!response.ok) {
@@ -37,18 +38,11 @@ export default function LoginForm() {
         }
     };
 
-    const handleChange = (key: string, value: string) => {
-        setFormData({
-            ...formData,
-            [key]: value
-        });
-    };
-
     return (
         <>
             <div className="flex w-full flex-wrap gap-6">
-                <Input type="text" label="DNI" value={formData.dni} onValueChange={(value) => handleChange('dni', value)} />
-                <Input type="password" label="Contraseña" value={formData.contraseña} onValueChange={(value) => handleChange('contraseña', value)} />
+                <Input type="text" label="DNI" value={dni} onValueChange={(value) => setDni(value)} />
+                <Input type="password" label="Contraseña" value={contraseña} onValueChange={(value) => setContraseña(value)} />
             </div>
             {error && <p className="text-red-500">{error}</p>}
             <Button className="mt-6 px-24 py-6 bg-[#38A911]" onPress={handleLogin}>
