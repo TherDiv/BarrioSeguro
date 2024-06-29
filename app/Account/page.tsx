@@ -105,7 +105,7 @@ export default function UserPage() {
                     label="Nombres"
                     value={userData.names}
                     onValueChange={(value) =>
-                        setUserData((prevState) => ({
+                        setUserData((prevState: any) => ({
                             ...prevState,
                             names: value
                         }))
@@ -116,7 +116,7 @@ export default function UserPage() {
                     label="Apellidos"
                     value={userData.lastNames}
                     onValueChange={(value) =>
-                        setUserData((prevState) => ({
+                        setUserData((prevState: any) => ({
                             ...prevState,
                             lastNames: value
                         }))
@@ -127,7 +127,7 @@ export default function UserPage() {
                     label="DNI"
                     value={userData.dni}
                     onValueChange={(value) =>
-                        setUserData((prevState) => ({
+                        setUserData((prevState: any) => ({
                             ...prevState,
                             dni: value
                         }))
@@ -138,7 +138,7 @@ export default function UserPage() {
                     label="Dirección"
                     value={userData.address}
                     onValueChange={(value) =>
-                        setUserData((prevState) => ({
+                        setUserData((prevState: any) => ({
                             ...prevState,
                             address: value
                         }))
@@ -151,7 +151,7 @@ export default function UserPage() {
                     isInvalid={isEmailInvalid}
                     errorMessage={isEmailInvalid && "Por favor ingrese un email válido"}
                     onValueChange={(value) =>
-                        setUserData((prevState) => ({
+                        setUserData((prevState: any) => ({
                             ...prevState,
                             email: value
                         }))
