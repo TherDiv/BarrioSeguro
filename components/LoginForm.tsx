@@ -30,7 +30,7 @@ export default function LoginForm() {
 
             // Si la respuesta es exitosa, puedes manejar la respuesta como sea necesario
             // Por ejemplo, redirigir al usuario a la página de inicio después del login
-            router.push('/inicio'); // Cambia la ruta según tu aplicación
+            router.push('/Actions'); // Cambia la ruta según tu aplicación
 
         } catch (error) {
             console.error('Error al iniciar sesión:', error);
