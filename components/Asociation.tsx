@@ -13,8 +13,6 @@ import Link from "next/link";
 
 
 
-
-
 export const Asociation = (id: any) => {
 
 	const [dni, setDNI] = useState("");

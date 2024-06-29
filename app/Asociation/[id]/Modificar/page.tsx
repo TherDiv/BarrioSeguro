@@ -1,0 +1,95 @@
+import { useEffect, useState } from 'react';
+import { Footer } from '@/components/Footer';
+import Staff from '@/components/Staff';
+import ModificarButton from '@/components/ModificarButtons';
+
+// Definición de la interfaz para el tipo de datos de vecinos
+interface Vecino {
+  dni: number;
+  nombre: string;
+  apellido: string;
+  direccion: string;
+  genero: string;
+  clas_vecino: string;
+  id_asociacion: string;
+  num_celular: string;
+  correo: string;
+  contraseña: string;
+}
+
+export default function SecurityPage() {
+  //conjunto de vecinos
+  const [vecinos, setVecinos] = useState<Vecino[]>([]);
+
+  useEffect(() => {
+    const fetchVecinos = async () => {
+      try {
+        const response = await fetch(process.env.BACKEND_URL + '/vecinos', {
+          headers: {
+            'Authorization': `Bearer ${process.env.BACKEND_API_KEY}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al obtener los vecinos');
+        }
+
+        const data = await response.json();
+
+        // Verificar si la data recibida tiene el formato esperado
+        if (!Array.isArray(data)) {
+          throw new Error('La respuesta del servidor no es una lista');
+        }
+
+        // Verificar el formato de cada elemento en la lista
+        data.forEach((vecino: any) => {
+          if (!isValidVecino(vecino)) {
+            throw new Error(`El vecino recibido no tiene el formato esperado: ${JSON.stringify(vecino)}`);
+          }
+        });
+
+        setVecinos(data); // Asignamos los vecinos obtenidos del backend al estado local
+
+      } catch (error) {
+        console.error('Error al obtener los vecinos:', error);
+        // Puedes manejar el error aquí, por ejemplo, mostrando un mensaje al usuario
+      }
+    };
+
+    fetchVecinos();
+  }, []); // El array vacío [] asegura que este efecto se ejecute solo una vez al montar el componente
+
+  // Función para validar si un objeto tiene el formato de Vecino esperado
+  const isValidVecino = (vecino: any): vecino is Vecino => {
+    return (
+      typeof vecino.dni === 'number' &&
+      typeof vecino.nombre === 'string' &&
+      typeof vecino.apellido === 'string' &&
+      typeof vecino.direccion === 'string' &&
+      typeof vecino.genero === 'string' &&
+      typeof vecino.clas_vecino === 'string' &&
+      typeof vecino.id_asociacion === 'string' &&
+      typeof vecino.num_celular === 'string' &&
+      typeof vecino.correo === 'string' &&
+      typeof vecino.contraseña === 'string'
+    );
+  };
+
+  return (
+    <>
+      <Footer text={'Lista de Vecinos'} />
+      <div className="flex justify-center flex-col gap-12">
+        {vecinos.map((vecino, index) => (
+          <Staff 
+            key={index}
+            names={vecino.nombre}
+            lastNames={vecino.apellido}
+            phone={vecino.num_celular}
+            position={vecino.clas_vecino} // Usando clas_vecino como posición, ajusta según necesites
+          />
+        ))}
+      </div>
+      <ModificarButton />
+    </>
+  );
+}
