@@ -22,7 +22,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="flex flex-col justify-center px-5">
+    <div className="flex flex-col pt-[11vh] px-5">
       <div className="flex justify-center with-full mb-5">
         <Image src={"/logo1.png"} width={270} height={270} alt={'xd'} />
       </div>
