@@ -13,6 +13,8 @@ export default function LoginForm() {
     const handleLogin = async () => {
         try {
             const dniNumber = parseInt(dni, 10);  // Parsea el DNI a número entero antes de enviarlo
+            //guardar el dni en el localstorage como user_dni
+            localStorage.setItem('user_dni', dniNumber.toString());
             const headers = new Headers();
             headers.append('accept', 'application/json');
             headers.append('access_token', process.env.NEXT_PUBLIC_BACKEND_API_KEY || ''); // Asegúrate de manejar el caso donde process.env.NEXT_PUBLIC_BACKEND_API_KEY sea undefined
