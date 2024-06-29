@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from 'react';
 import { Footer } from '@/components/Footer';
 import Staff from '@/components/Staff';
