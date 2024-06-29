@@ -18,6 +18,7 @@ const CodeGenerator: React.FC<CodeGeneratorProps> = ({
   const [generatedCode, setGeneratedCode] = useState('');
   const [buttonText, setButtonText] = useState('Generar Código');
   const router = useRouter();
+  
 
   const generateCode = async () => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
