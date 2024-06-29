@@ -10,12 +10,14 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ text }) => {
-
-
+  const [associationCode, setAssociationCode] = useState("");
   const [association, setAssociation] = useState("");
 
   useEffect(() => {
-      const storedUserData = localStorage.getItem('userData');
+    const associationId = localStorage.getItem('associationId');
+    if (associationId) {
+      setAssociationCode(associationId);
+    }
       const storedCodes = localStorage.getItem('associationCodes');
       if (storedCodes) {
         const associationCodes = JSON.parse(storedCodes);
@@ -30,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ text }) => {
   return (
     <div className=" mb-20">
     <div className="flex justify-between flex-col">
-        <Link href={"/Asociation/" + association}>
+        <Link href={"/Asociation/" + associationCode}>
         <Image
             src="/logo2.png"
             alt="Asociation"
