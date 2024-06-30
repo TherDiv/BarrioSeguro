@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ text }) => {
   , []);
 
   return (
-    <div className="flex flex-col items-center justify-start">
+    <div className="flex flex-col items-center ">
     <div className="">
       <Link href={"/Asociation/" + associationCode}>
         <Image
@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ text }) => {
         />
       </Link>
     </div>
-    <div className="flex justify-center items-center mt-10 mb-10">
+    <div className="flex items-center mt-10 mb-10">
       <p className="font-bold text-5xl text-[#115DA9] ">{text}</p>
     </div>
   </div>

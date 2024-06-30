@@ -15,9 +15,11 @@ export default function CommunityMeetingsPage() {
 
   return (
     <>
-    <Footer text={'Juntas Vecinales'}/>
-        <div className="flex justify-center flex-col gap-12">
-      <p className='font-bold text-xl '>Juntas Pendientes:</p>
+
+        <div className="flex justify-center flex-col gap-20 mb-56">
+        <Footer text={'Juntas Vecinales'}/>
+        </div>
+        <div className="flex flex-col gap-10 -mt-32 mb-56"> 
       <Action text={'Reparación de cableado eléctrico'} icon={AiOutlineThunderbolt}/>
       <Action text={'Renovación del personal de seguridad'} icon={GrUserPolice}/>
       <Action text={'Mantenimiento de las rejas'} icon={HiOutlineWrenchScrewdriver}/>
