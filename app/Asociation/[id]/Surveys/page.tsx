@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { Header } from '@/components/Header';
-import Poll from '@/components/Poll'; // Verifica la ruta correcta si usas alias.
+import Poll from '@/components/poll'; // Verifica la ruta correcta si usas alias.
 import Link from 'next/link';
 import Image from 'next/image';
 const SurveysPage = () => {
