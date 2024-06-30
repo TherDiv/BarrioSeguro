@@ -74,14 +74,7 @@ export default function UserPage() {
     return (
         <div className=" ">
             <div className="flex justify-between flex-col">
-                <Link href={`/Asociation/${userData.id_asociacion}`}>
-                    <Image
-                        src="/logo2.png"
-                        alt="Asociation"
-                        width={200}
-                        height={20}
-                    />
-                </Link>
+
 
                 <div className="flex justify-center align-center items-center mt-20">
                     <Image
@@ -92,8 +85,8 @@ export default function UserPage() {
                     />
 
                     <div className="flex flex-col ml-6">
-                        <p className="text-xl font-bold"> Perfil del usuario</p>
-                        <p className="text-start font-semibold ml-2">
+                        <p className="text-2xl font-bold text-[#115DA9]"> Perfil del usuario</p>
+                        <p className="text-start font-semibold ml-2 text-black">
                             {userData.names} {userData.lastNames}
                         </p>
                     </div>
