@@ -7,8 +7,8 @@ const SurveysPage = () => {
   return (
     <>
       <Footer text={'Encuestas'} />
-      <div className="flex justify-center flex-col gap-20 ">
-        <p className='font-bold text-xl'>Encuestas Pendientes:</p>
+      <div className="flex flex-col ">
+        <p className=' text-xl mt-20 text-black text-left'>Encuestas Pendientes:</p>
       </div>
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 mt-2">
         <Poll 
