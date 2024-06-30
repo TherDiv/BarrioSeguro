@@ -1,6 +1,6 @@
 "use client"
 
-import {Header} from '@/components/Footer';
+import { Header } from '@/components/Header';
 import { Advertisement } from '@/components/Advertisement';
 import Link from 'next/link';
 import Image from 'next/image';

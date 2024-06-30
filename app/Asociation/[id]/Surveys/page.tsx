@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { Header } from '@/components/Footer'; // Asegúrate de que Footer está correctamente importado.
+import { Header } from '@/components/Header';
 import Poll from '@/components/Poll'; // Verifica la ruta correcta si usas alias.
 import Link from 'next/link';
 import Image from 'next/image';

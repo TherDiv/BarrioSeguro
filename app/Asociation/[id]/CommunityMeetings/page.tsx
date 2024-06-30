@@ -9,7 +9,7 @@ import { Action } from '@/components/Action';
 import { AiOutlineThunderbolt } from "react-icons/ai";
 import { GrUserPolice } from "react-icons/gr";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
-import {Header} from '@/components/Footer';
+import { Header } from '@/components/Header';
 import Image from 'next/image';
 export default function CommunityMeetingsPage() {
 

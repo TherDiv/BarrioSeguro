@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
-import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import Staff from '@/components/Staff';
 import ModificarButton from '@/components/ModificarButtons';
 
@@ -81,7 +81,7 @@ export default function SecurityPage() {
 
   return (
     <>
-      <Footer text={'Lista de Vecinos'} />
+      <Header text={'Lista de Vecinos'} />
       <div className="flex justify-center flex-col gap-12">
         {vecinos.map((vecino, index) => (
           <Staff
