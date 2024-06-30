@@ -24,15 +24,24 @@ export default function InsertCodePage() {
   };
 
   return (
-    <div className="flex justify-center flex-col gap-12 w-96 justify-items-center items-center">
-      <Input type="text" label="Codigo de invitación" value={code} onValueChange={setCode} className='w-3/4'/>
-      <Button
-        color='success'
-        className="mt-2 mb-2 px-20 py-6"
-        onPress={handleJoin}
-      >
-        Unirse
-      </Button>
+    <div className="flex flex-col justify-center items-center min-h-screen gap-8">
+      <div className="flex flex-col items-center w-full max-w-md p-4 bg-white rounded-xl shadow-md ">
+        <p className='font-bold text-3xl text-[#115DA9]'>Ingrese su código</p>
+        <Input type="text" label="Código de invitación" value={code} onChange={e => setCode(e.target.value)} className='w-full mt-4'/>
+        <Button
+          color='success'
+          className="mt-4"
+          onPress={handleJoin}
+        >
+          Unirse
+        </Button>
+      </div>
+
+      <div className="flex flex-col items-center w-full max-w-md p-4 bg-white  shadow-md rounded-xl">
+        <p className="font-bold mt-2 text-[#115DA9]">*utilize el código brindado por su director de su asociación</p>
+      </div>
     </div>
   );
 }
+
+
