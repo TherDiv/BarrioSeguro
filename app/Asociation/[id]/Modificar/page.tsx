@@ -1,5 +1,6 @@
+"use client"
 import { useEffect, useState } from 'react';
-import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import Staff from '@/components/Staff';
 import ModificarButton from '@/components/ModificarButtons';
 
@@ -24,10 +25,13 @@ export default function SecurityPage() {
   useEffect(() => {
     const fetchVecinos = async () => {
       try {
+        const headers = new Headers();
+        headers.append('accept', 'application/json');
+        headers.append('access_token', process.env.NEXT_PUBLIC_BACKEND_API_KEY || ''); // Asegúrate de manejar el caso donde process.env.NEXT_PUBLIC_BACKEND_API_KEY sea undefined
+        headers.append('Content-Type', 'application/json');
+
         const response = await fetch(process.env.BACKEND_URL + '/vecinos', {
-          headers: {
-            'Authorization': `Bearer ${process.env.BACKEND_API_KEY}`
-          }
+          headers: headers,
         });
 
         if (!response.ok) {
@@ -77,10 +81,10 @@ export default function SecurityPage() {
 
   return (
     <>
-      <Footer text={'Lista de Vecinos'} />
+      <Header text={'Lista de Vecinos'} />
       <div className="flex justify-center flex-col gap-12">
         {vecinos.map((vecino, index) => (
-          <Staff 
+          <Staff
             key={index}
             names={vecino.nombre}
             lastNames={vecino.apellido}
