@@ -47,9 +47,9 @@ export default function LoginForm() {
                 <Input type="password" label="Contraseña" value={contraseña} onValueChange={(value) => setContraseña(value)} />
             </div>
             {error && <p className="text-red-500">{error}</p>}
-            <Button className="mt-6 px-24 py-6 bg-[#38A911]" onPress={handleLogin}>
+            <Button className="mt-6 px-24 py-6 bg-[#38A911] " onPress={handleLogin}>
                 <p className="text-lg">
-                    Iniciar Sesión
+                    Iniciar Sesion
                 </p>
             </Button>
         </>
