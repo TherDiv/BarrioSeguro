@@ -1,13 +1,24 @@
 "use client"
 import React from 'react';
-import { Footer } from '@/components/Footer'; // Asegúrate de que Footer está correctamente importado.
+import { Header } from '@/components/Footer'; // Asegúrate de que Footer está correctamente importado.
 import Poll from '@/components/Poll'; // Verifica la ruta correcta si usas alias.
-
+import Link from 'next/link';
+import Image from 'next/image';
 const SurveysPage = () => {
   return (
     <>
-      <Footer text={'Encuestas'} />
-      <div className="flex flex-col ">
+       <div className="items-start">
+      <Link href={"/Asociation/"}>
+          <Image
+            src="/logo2.png"
+            alt="Asociation"
+            width={200}
+            height={20}
+          />
+      </Link>
+      <p className="font-bold text-5xl text-[#115DA9] mt-20">{"Encuestas"}</p>
+    
+       <div className="flex flex-col mt-10 ">
         <p className=' text-xl mt-20 text-black text-left'>Encuestas Pendientes:</p>
       </div>
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 mt-2">
@@ -31,6 +42,7 @@ const SurveysPage = () => {
           date="2024-06-10"
           options={["Esta semana", "La próxima semana", "No definido"]}
         />
+      </div>
       </div>
     </>
   );

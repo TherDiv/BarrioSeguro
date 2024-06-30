@@ -95,7 +95,7 @@ export const Asociation = (id: any) => {
             {/* Comunicados*/}
             <div className="flex flex-col gap-7 mt-10 max-w-screen justify-center">
                 <p className="font-bold text-3xl text-[#115DA9] mt-10">Comunicados</p>
-                <div className="border-2 border-blue-500 p-10 rounded-2xl"> {/* Borde azul y padding */}
+                <div className="border-2 border-[#115DA9] p-5 rounded-2xl"> {/* Borde azul y padding */}
                     <div className="flex flex-wrap justify-center gap-6">
                         <Advertisement
                             type={"Anuncio"}
