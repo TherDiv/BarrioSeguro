@@ -25,7 +25,7 @@ const SurveysPage = () => {
         <Poll 
           question="¿Quién se robó las PC de la FISI?"
           date="2024-05-20"
-          options={["Opción A", "Opción B", "Opción C"]}
+          options={["Ivan Nuñez", "Nuñez Ivan", "Joaquin Ivan"]}
         />
         <Poll 
           question="¿En qué invertimos lo del mes de mayo?"
