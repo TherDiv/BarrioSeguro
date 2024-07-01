@@ -81,6 +81,8 @@ const CodeGenerator: React.FC<CodeGeneratorProps> = ({
     if (!generatedCode) {
       generateCode();
     } else {
+      //guardar en el local storage el association id code
+      localStorage.setItem('associationId', generatedCode);
       router.push(`/Asociation/${generatedCode}`);
     }
   };
