@@ -21,7 +21,7 @@ export default function InsertCodePage() {
         method: 'GET',
         headers: headers,
       });
-      
+
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -31,6 +31,7 @@ export default function InsertCodePage() {
       console.log(data)
 
       if (association) {
+        localStorage.setItem('associationId', code);
         router.push(`/Asociation/${code}`);
       } else {
         alert("Código de invitación no válido.");
@@ -45,7 +46,7 @@ export default function InsertCodePage() {
     <div className="flex flex-col justify-center items-center min-h-screen gap-8">
       <div className="flex flex-col items-center w-full max-w-md p-4 bg-white rounded-xl shadow-md ">
         <p className='font-bold text-3xl text-[#115DA9]'>Ingrese su código</p>
-        <Input type="text" label="Código de invitación" value={code} onChange={e => setCode(e.target.value)} className='w-full mt-4'/>
+        <Input type="text" label="Código de invitación" value={code} onChange={e => setCode(e.target.value)} className='w-full mt-4' />
         <Button
           color='success'
           className="mt-4"
