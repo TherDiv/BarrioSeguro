@@ -16,9 +16,12 @@ export default function UserPage() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
+    const[associationCode, setAssociationCode] = useState<string>("");
 
     useEffect(() => {
         const user_dni = localStorage.getItem('user_dni');
+        const associationCode = localStorage.getItem('associationId');
+        setAssociationCode(associationCode || '');
         if (user_dni) {
             fetchUserData(user_dni);
         } else {
@@ -62,7 +65,9 @@ export default function UserPage() {
 
     const handleSave = () => {
         // Aquí podrías implementar la lógica para actualizar los datos del usuario en la API si es necesario
-        alert("Datos actualizados correctamente.");
+        //REDIRIGIR A LA PAGINA PRINCIPAL
+        window.location.href = `/Asociation/${associationCode}`;
+
     };
 
     if (isLoading) {
