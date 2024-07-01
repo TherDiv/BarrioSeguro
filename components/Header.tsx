@@ -9,27 +9,37 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ text }) => {
-  const [associationCode, setAssociationCode] = useState("");
-  const [association, setAssociation] = useState("");
+  const [associationCode, setAssociationCode] = useState<string>(() => {
+    return localStorage.getItem('associationId') || "0";
+  });
 
   useEffect(() => {
-    const associationId = localStorage.getItem('associationId');
-    if (associationId) {
-      setAssociationCode(associationId);
-    }
-    const storedCodes = localStorage.getItem('associationCodes');
-    if (storedCodes) {
-      const associationCodes = JSON.parse(storedCodes);
-      const associationCode = Object.values(associationCodes)[0] as string;
-      if (associationCode) {
-        setAssociation(associationCode);
+    const handleStorageChange = () => {
+      const associationId = localStorage.getItem('associationId');
+      if (associationId) {
+        setAssociationCode(associationId);
+      } else {
+        setAssociationCode("prueba");
       }
-    }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    // Llamar a handleStorageChange al montar el componente
+    handleStorageChange();
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
+  useEffect(() => {
+    console.log("el codigo de asociacion es: " + associationCode);
+  }, [associationCode]);
+
   return (
-    <header className="flex flex-col  w-full  p-4 shadow-none">
-      <div className="flex  w-full justify-between">
+    <header className="flex flex-col w-full p-4 shadow-none">
+      <div className="flex w-full justify-between">
         <Link href={"/Asociation/" + associationCode}>
           <Image
             src="/logo2.png"
@@ -39,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({ text }) => {
           />
         </Link>
       </div>
-      <div className="flex  mt-4">
+      <div className="flex mt-4">
         <p className="font-bold text-5xl text-[#115DA9]">{text}</p>
       </div>
     </header>
