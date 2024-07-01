@@ -28,13 +28,15 @@ export default function UserPage() {
 
     const fetchUserData = async (user_dni: string) => {
         try {
+            const headers = new Headers();
+            headers.append('accept', 'application/json');
+            headers.append('access_token', process.env.NEXT_PUBLIC_BACKEND_API_KEY || ''); // Asegúrate de manejar el caso donde process.env.NEXT_PUBLIC_BACKEND_API_KEY sea undefined
+            headers.append('Content-Type', 'application/json');
+            headers.append('ngrok-skip-browser-warning', 'true'); // Agregar el encabezado para evitar la advertencia
             const response = await fetch(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/vecinos/${user_dni}`,
                 {
-                    headers: {
-                        accept: "application/json",
-                        access_token: process.env.NEXT_PUBLIC_BACKEND_API_KEY || "",
-                    }
+                    headers: headers
                 }
             );
             if (!response.ok) {
