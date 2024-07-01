@@ -11,7 +11,7 @@ Prerrequisitos
 
 - Node.js y npm instalados.
 - MySQL instalado y configurado.
-- Git instalado
+- Git instalado.
 
 ## Clonar el Repositorio
 
