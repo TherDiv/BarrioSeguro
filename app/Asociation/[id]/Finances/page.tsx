@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
 import { Header } from '@/components/Header';
 import { Advertisement } from '@/components/Advertisement';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { jsPDF } from 'jspdf';
 
 interface Gasto {
-  id_gasto: number,
-  fecha_gasto: string,
-  tit_gasto: string,
-  monto_gastado: number,
-  id_asociacion: string
+  id_gasto: number;
+  fecha_gasto: string;
+  tit_gasto: string;
+  monto_gastado: number;
+  id_asociacion: string;
 }
 
 export default function FinancesPage() {
-
   const [gastos, setGastos] = useState<Gasto[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -61,6 +61,17 @@ export default function FinancesPage() {
     fetchGastos();
   }, []);
 
+  const generatePDF = (gasto: Gasto) => {
+    const doc = new jsPDF();
+    doc.text(`ID Gasto: ${gasto.id_gasto}`, 10, 10);
+    doc.text(`Fecha: ${gasto.fecha_gasto}`, 10, 20);
+    doc.text(`Título: ${gasto.tit_gasto}`, 10, 30);
+    doc.text(`Monto Gastado: ${gasto.monto_gastado}`, 10, 40);
+    doc.text(`ID Asociación: ${gasto.id_asociacion}`, 10, 50);
+
+    doc.save(`gasto_${gasto.id_gasto}.pdf`);
+  };
+
   return (
     <>
       <div className="items-start">
@@ -86,6 +97,7 @@ export default function FinancesPage() {
                   title={gasto.tit_gasto}
                   description={`Monto Gastado: ${gasto.monto_gastado}`}
                   buttonText='Descargar Boleta'
+                  onClick={() => generatePDF(gasto)} // Genera y descarga el PDF
                 />
               </div>
             ))
