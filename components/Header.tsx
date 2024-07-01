@@ -1,6 +1,3 @@
-"use client";
-import { useEffect, useState } from 'react';
-import { Button } from "@nextui-org/button";
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -9,33 +6,8 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ text }) => {
-  const [associationCode, setAssociationCode] = useState<string>(() => {
-    return localStorage.getItem('associationId') || "0";
-  });
 
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const associationId = localStorage.getItem('associationId');
-      if (associationId) {
-        setAssociationCode(associationId);
-      } else {
-        setAssociationCode("prueba");
-      }
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-
-    // Llamar a handleStorageChange al montar el componente
-    handleStorageChange();
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    console.log("el codigo de asociacion es: " + associationCode);
-  }, [associationCode]);
+  const associationCode = localStorage.getItem('associationId');
 
   return (
     <header className="flex flex-col w-full p-4 shadow-none">
