@@ -7,11 +7,11 @@ Aplicación web diseñada para mejorar la seguridad y la comunicación en asocia
 
 ## Inicializar BarrioSeguro
 
-Prerrequisitos
+Tecnologias Usadas
 
-- Node.js y npm instalados.
-- MySQL instalado y configurado.
-- Git instalado.
+- React
+- Tailwind
+- NextJs
 
 ## Clonar el Repositorio
 
