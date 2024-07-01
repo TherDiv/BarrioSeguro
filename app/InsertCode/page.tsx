@@ -15,6 +15,7 @@ export default function InsertCodePage() {
       headers.append('accept', 'application/json');
       headers.append('access_token', process.env.NEXT_PUBLIC_BACKEND_API_KEY || ''); // Asegúrate de manejar el caso donde process.env.NEXT_PUBLIC_BACKEND_API_KEY sea undefined
       headers.append('Content-Type', 'application/json');
+      headers.append('ngrok-skip-browser-warning', 'true'); // Agregar el encabezado para evitar la advertencia
 
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/asociaciones`, {
         method: 'GET',

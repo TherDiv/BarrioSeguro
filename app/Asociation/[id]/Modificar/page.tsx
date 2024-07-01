@@ -29,40 +29,49 @@ export default function SecurityPage() {
         headers.append('accept', 'application/json');
         headers.append('access_token', process.env.NEXT_PUBLIC_BACKEND_API_KEY || ''); // Asegúrate de manejar el caso donde process.env.NEXT_PUBLIC_BACKEND_API_KEY sea undefined
         headers.append('Content-Type', 'application/json');
-
-        const response = await fetch(process.env.BACKEND_URL + '/vecinos', {
+        headers.append('ngrok-skip-browser-warning', 'true'); // Agregar el encabezado para evitar la advertencia
+  
+        const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/vecinos', {
+          method: 'GET',
           headers: headers,
         });
-
+  
         if (!response.ok) {
           throw new Error('Error al obtener los vecinos');
         }
-
-        const data = await response.json();
-
-        // Verificar si la data recibida tiene el formato esperado
-        if (!Array.isArray(data)) {
-          throw new Error('La respuesta del servidor no es una lista');
-        }
-
-        // Verificar el formato de cada elemento en la lista
-        data.forEach((vecino: any) => {
-          if (!isValidVecino(vecino)) {
-            throw new Error(`El vecino recibido no tiene el formato esperado: ${JSON.stringify(vecino)}`);
+  
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+          const data = await response.json();
+  
+          // Verificar si la data recibida tiene el formato esperado
+          if (!Array.isArray(data)) {
+            throw new Error('La respuesta del servidor no es una lista');
           }
-        });
-
-        setVecinos(data); // Asignamos los vecinos obtenidos del backend al estado local
-
+  
+          // Verificar el formato de cada elemento en la lista
+          data.forEach((vecino: any) => {
+            if (!isValidVecino(vecino)) {
+              throw new Error(`El vecino recibido no tiene el formato esperado: ${JSON.stringify(vecino)}`);
+            }
+          });
+  
+          setVecinos(data); // Asignamos los vecinos obtenidos del backend al estado local
+        } else {
+          const text = await response.text();
+          console.error('Respuesta no JSON:', text);
+          throw new Error('El servidor no devolvió JSON');
+        }
       } catch (error) {
         console.error('Error al obtener los vecinos:', error);
         // Puedes manejar el error aquí, por ejemplo, mostrando un mensaje al usuario
       }
     };
-
+  
     fetchVecinos();
-  }, []); // El array vacío [] asegura que este efecto se ejecute solo una vez al montar el componente
-
+  }, []);
+  
+  
   // Función para validar si un objeto tiene el formato de Vecino esperado
   const isValidVecino = (vecino: any): vecino is Vecino => {
     return (
